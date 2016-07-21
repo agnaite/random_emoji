@@ -3,10 +3,13 @@
 
 from flask import Flask, render_template
 from flask_assets import Environment, Bundle
-from random import choice
+import random
 
 app = Flask(__name__)
 assets = Environment(app)
+
+# Use a secure random number generator.
+secure_random = random.SystemRandom()
 
 assets.url = app.static_url_path
 scss = Bundle('sass.scss', filters='pyscss', output='all.css')
@@ -22,7 +25,7 @@ EMOJI = [u'🍄', u'🍕', u'🍪', u'🎨', u'🐌', u'🐦', u'🐶',
 def home():
     """Home page"""
 
-    random_emoji = choice(EMOJI)
+    random_emoji = secure_random.choice(EMOJI)
 
     return render_template('index.html', emoji=random_emoji)
 

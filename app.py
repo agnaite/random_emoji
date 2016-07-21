@@ -1,13 +1,15 @@
 # bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template
+from flask import Flask, render_template, session
 from flask_assets import Environment, Bundle
 import random
+import secret_key
 
 app = Flask(__name__)
 assets = Environment(app)
 
+app.secret_key = secret_key.get_key()
 # Use a secure random number generator.
 secure_random = random.SystemRandom()
 
@@ -26,6 +28,8 @@ def home():
     """Home page"""
 
     random_emoji = secure_random.choice(EMOJI)
+
+    session[''] = [random_emoji]
 
     return render_template('index.html', emoji=random_emoji)
 

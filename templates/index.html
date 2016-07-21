@@ -1,7 +1,9 @@
 <!doctype html>
 <html>
-<head>
-  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<head>  
+    {% assets "scss_all" %}
+        <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
+    {% endassets %}
   <title>Randoji</title>
 </head>
 <body>

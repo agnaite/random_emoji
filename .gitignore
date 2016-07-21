@@ -1,3 +1,4 @@
 env/
 secret_key.py
 *.pyc
+static/.webassets-cache

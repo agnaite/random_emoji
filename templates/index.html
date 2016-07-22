@@ -10,6 +10,12 @@
   <div class="container">
     <h1>Your random emoji:</h1>
     <div class="emoji">{{ emoji }}</div>
+    <h3>Your emoji history:</h3>
+
+    {% for emoji in hist %}
+        <span class="history">{{ emoji }}</span>
+    {% endfor %}
+    
   </div>
 </body>
 </html>
